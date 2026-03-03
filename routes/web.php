@@ -15,4 +15,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    // Support routes
+    Route::get('/soporte', [App\Http\Controllers\TicketController::class, 'index'])->name('tickets.index');
+    Route::get('/soporte/nuevo', [App\Http\Controllers\TicketController::class, 'create'])->name('tickets.create');
+    Route::post('/soporte', [App\Http\Controllers\TicketController::class, 'store'])->name('tickets.store');
 });
